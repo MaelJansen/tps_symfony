@@ -23,12 +23,12 @@ class WebServer(socketserver.BaseRequestHandler):
                 Ressource = tab[1]
                 if (len(tab2)>1):
                     resultat = tab2[1]
-                    resultatFinale = "/test2?"+str(resultat)
+                    resultatFinale = "/Addition?"+str(resultat)
                     tab3=tab2[1].split('&')
                     tab4=tab3[0].split('=')
-                    a = tab4[1]
+                    a = int(tab4[1])
                     tab5=tab3[1].split('=')
-                    b = tab5[1]
+                    b = int(tab5[1])
                     res = a+b
             if line == '':
                 receivingHeaders = False
@@ -45,7 +45,7 @@ class WebServer(socketserver.BaseRequestHandler):
             response += "Content-type: text/html\r\n"
             response += "\r\n"
             response += "<h1>Test</h1>"
-        elif (Ressource=="/test2"):
+        elif (Ressource=="/Addition"):
             response = "HTTP/1.1 200 OK\r\n"
             response += "Content-type: text/html\r\n"
             response += "\r\n"

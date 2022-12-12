@@ -11,7 +11,16 @@
                 echo "</th>";
             }else {
                     echo "<td>";
-                    echo "<a href=\"multiplication.php?i=".$i."&j=".$j."\">".$i*$j."</a>"; 
+                    if ($i == $_GET["i"]){
+                        echo "<mark>
+                        <a href=\"multiplication.php?i=".$i."&j=".$j."\">".$i*$j."</a>
+                        </mark>";
+                    }else if($j == $_GET["j"]) {
+                        echo "<mark> <a href=\"multiplication.php?i=".$i."&j=".$j."\">".$i*$j."</a> </mark>";
+                    }
+                    else {
+                        echo "<a href=\"multiplication.php?i=".$i."&j=".$j."\">".$i*$j."</a>";
+                    }
                     echo "</td>";
                 }
             }
